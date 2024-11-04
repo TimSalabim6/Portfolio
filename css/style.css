@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+/* Color variables */
+:root {
+    --background-color: white;
+    --text-color: white;
+    --button-bg-color: #e13535;
+    --button-hover-bg-color: #f33a3a;
+    --fade-gradient-start: rgba(255, 255, 255, 0);
+    --fade-gradient-mid: rgba(29, 29, 37, 0);
+    --fade-gradient-end: rgba(29, 29, 37, 1);
+    --project-bg-color: rgb(29, 29, 37);
+    --box-shadow-color: rgba(100, 100, 111, 0.1);
+    --box-shadow-hover-color: rgba(100, 100, 111, 0.2);
+    --footer-bg-color: #64646F33;
+    --highlight-color: #e13535;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: url('../img/background.png');
+    color: var(--text-color);
+}
+
+/* Grid */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(40, 1fr);
+    height: 300vh;
+}
+
+.header {
+    grid-column: span 5 / span 5;
+}
+
+.welcome-grid {
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 7;
+}
+
+.about-me-grid {
+    grid-column: span 3 / span 3;
+    grid-row: span 6 / span 6;
+    grid-column-start: 2;
+    grid-row-start: 16;
+}
+
+.project-grid {
+    grid-column: span 3 / span 3;
+    grid-row: span 6 / span 6;
+    grid-column-start: 2;
+    grid-row-start: 27;
+}
+
+.footer {
+    grid-column: span 5 / span 5;
+    grid-row-start: 40;
+}
+
+/* Stylesheet */
+
+#welcome {
+    font-size: 2.5rem;
+}
+
+.button {
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    background-color: var(--button-bg-color);
+    width: 150px;
+    height: 35px;
+    font-weight: lighter;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.container-about-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sized-h2 {
+    font-size: 2rem;
+}
+
+#about-me-text-field {
+    width: 400px;
+    text-align: left;
+}
+
+#about-me-image {
+    width: 340px;
+    border-radius: 20px;
+}
+
+p {
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: medium;
+    line-height: 1.5;
+    max-width: 75ch;
+}
+
+.about-me-text-margin {
+    margin: 20px 0;
+}
+
+.color-purple {
+    color: var(--highlight-color);
+}
+
+.margin {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: 10px 0;
+}
+
+/* Projects */
+
+.project-image {
+    height: 150px;
+    width: 300px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.fade-image {
+    height: 150px;
+    width: 300px;
+    background: linear-gradient(
+            180deg,
+            var(--fade-gradient-start) 0%,
+            var(--fade-gradient-mid) 92%,
+            var(--fade-gradient-end) 100%
+    );
+    position: relative;
+    border-radius: 20px 20px 0 0;
+}
+
+.project-text {
+    width: 300px;
+    height: 220px;
+    background-color: var(--project-bg-color);
+    border-radius: 0 0 20px 20px;
+    padding: 20px;
+}
+
+.project-content {
+    box-shadow: var(--box-shadow-color) 0 4px 15px 0;
+    border-radius: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 300px;
+    background-color: var(--project-bg-color);
+    margin-top: 20px;
+}
+
+.project-content:hover {
+    box-shadow: var(--box-shadow-hover-color) 0 7px 29px 0;
+    transform: scale(1.05);
+}
+
+#project-aligner {
+    display: flex;
+    gap: 1vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Footer */
+
+#footer-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--footer-bg-color);
+}
+
+.footer-info:hover {
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
+}
+
+/* Animation */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.loadAnimation {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.loadAnimation.visible {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1200px) {
+    .parent {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #about-me-text-field,
+    #about-me-image {
+        width: 300px;
+    }
+
+    .button {
+        width: 130px;
+    }
+
+    .project-image,
+    .fade-image,
+    .project-text,
+    .project-content {
+        width: 260px;
+    }
+}
+
+@media (max-width: 992px) {
+    .parent {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .welcome-grid,
+    .about-me-grid,
+    .project-grid {
+        grid-column: span 2 / span 2;
+        grid-column-start: 1;
+    }
+
+    #about-me-text-field,
+    #about-me-image {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .parent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header,
+    .footer {
+        grid-column: span 2 / span 2;
+    }
+
+    .welcome-grid,
+    .about-me-grid,
+    .project-grid {
+        grid-column: span 2 / span 2;
+        grid-column-start: 1;
+    }
+
+    #about-me-text-field,
+    #about-me-image {
+        width: 200px;
+    }
+
+    .button {
+        width: 100px;
+        font-size: 0.9rem;
+    }
+
+    #welcome {
+        font-size: 2rem;
+    }
+
+    .sized-h2 {
+        font-size: 1.8rem;
+    }
+
+    .project-image,
+    .fade-image,
+    .project-text,
+    .project-content {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .parent {
+        grid-template-columns: 1fr;
+    }
+
+    .header,
+    .footer,
+    .welcome-grid,
+    .about-me-grid,
+    .project-grid {
+        grid-column: span 1 / span 1;
+    }
+
+    #about-me-text-field,
+    #about-me-image {
+        width: 100%;
+    }
+
+    .button {
+        width: 90%;
+        height: 40px;
+    }
+
+    #welcome {
+        font-size: 1.8rem;
+    }
+
+    .sized-h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-image,
+    .fade-image,
+    .project-text,
+    .project-content {
+        width: 100%;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus,
+a:active {
+    color: inherit;
+    outline: none;
+}
+
+a:hover {
+    color: inherit;
+}
