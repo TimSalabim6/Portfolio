@@ -243,24 +243,6 @@ h2 {
     }
 }
 
-@media (max-width: 992px) {
-    #project-aligner{
-        width: 75vw;
-    }
-}
-
-@media (max-width: 768px) {
-    #project-aligner{
-        width: 75vw;
-    }
-}
-
-@media (max-width: 480px) {
-    #project-aligner{
-        width: 75vw;
-    }
-}
-
 a {
     color: inherit;
     text-decoration: none;
