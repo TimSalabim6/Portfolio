@@ -55,7 +55,7 @@ body {
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -85,7 +85,7 @@ body {
 
 
 #projects-container {
-    padding-top: 10rem;
+    padding-top: 30rem;
 }
 
 #footer-container {
