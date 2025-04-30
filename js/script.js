@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById('scroll-button').addEventListener('click', function() {
-    const targetElement = document.getElementById('project-aligner');
+    const targetElement = document.getElementById('projects-container');
 
     if (targetElement) {
         const rect = targetElement.getBoundingClientRect();
